@@ -27,6 +27,7 @@ group node['dela']['group'] do
 end
 
 group node['hops']['group'] do
+  gid node['hops']['group_id']
   action :create
   not_if "getent group #{node['hops']['group']}"
   not_if { node['install']['external_users'].casecmp("true") == 0 }
